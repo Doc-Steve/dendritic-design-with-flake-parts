@@ -416,7 +416,7 @@ flake.nixosConfigurations = inputs.self.lib.mkNixos "x86_64-linux" "linux-deskto
 > [!NOTE]
 > See chapter [The Flake Parts Framework](chapter1.md#the-flake-parts-framework) for details about the self defined function we use here.
 
-That’s all! The nixOS configuration can be used!
+That’s all! The NixOS configuration can be used!
 
 ---
 [<< Previous Chapter](chapter1.md#basics-for-usage-of-the-dendritic-pattern) | [Table of Contents](/README.md#contents) | [Next Chapter >>](chapter3.md#comprehensive-example)
