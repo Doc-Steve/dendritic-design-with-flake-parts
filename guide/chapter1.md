@@ -162,7 +162,7 @@ Let's examine how this appears in the code of a feature:
 
 By default, all feature modules are imported at the `flake.nix` file. Instead of manually importing each file, the collection folder "modules" (the home of all our features) becomes convenient. We simply need to import all `.nix` files from this folder recursively. Therefore, it's essential that all the files in the folder are feature modules.
 
-The import is accomplished with a few lines of Nix code. Alternatively, you can use the [vic/import-tree](https://github.com/vic/import-tree) tool, which, as a bonus, also excludes all files and folders with a name prefix of "`_`" from the import. This can be particularly useful for disabling unfinished code or code that is not a top-level module.
+The import is accomplished with a few lines of Nix code. Alternatively, you can use the [vic/import-tree](https://github.com/vic/import-tree) tool, which, as a bonus, also excludes all files and folders with a name prefix of "`_`" from the import. This can be particularly useful for disabling unfinished code or code that is not a ˋflake classˋ (feature) module.
 
 The import of all feature modules can be accomplished as follows:
 ```nix
