@@ -11,9 +11,6 @@ let
         verbose = true;
         useUserPackages = true;
         useGlobalPkgs = true;
-        extraSpecialArgs = {
-          inherit inputs;
-        };
         backupFileExtension = "backup";
         backupCommand = "rm";
         overwriteBackup = true;

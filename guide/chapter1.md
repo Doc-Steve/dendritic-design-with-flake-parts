@@ -152,7 +152,7 @@ Let's examine how this appears in the code of a feature:
 
 > [!NOTE]
 > - When just using the term 'modules' in this guide, `aspect` modules are referenced.
-> - In other documentation, you may encounter the term "top-level module". In many instances, Flake Parts Framework modules (`flake class` modules) are referenced. However, the term "top-level" is ambiguous. Remember that the Dendritic Pattern is not based on any specific tool, and it's not even necessary to use it with flakes at all. Sometimes, "top-level" refers to another top-level configuration belonging to a different class. To avoid confusion, this guide refrains from using the term "top-level module" and instead refers to `feature modules` for the used Flake Parts Framework modules (`flake class` modules) that are in the focus of this guide.
+> - In other documentation, you may encounter the term "top-level module". In many instances, Flake Parts Framework modules (`<flake class>` modules) are referenced. However, the term "top-level" is ambiguous. Remember that the Dendritic Pattern is not based on any specific tool, and it's not even necessary to use it with flakes at all. Sometimes, "top-level" refers to another top-level configuration belonging to a different class. To avoid confusion, this guide refrains from using the term "top-level module" and instead refers to `feature modules` for the used Flake Parts Framework modules (`<flake class>` modules) that are in the focus of this guide.
 
 > [!WARNING]
 > When importing `aspect` modules within other `aspect` modules to establish a hierarchy, it's essential to be aware of the following pitfalls:
@@ -162,7 +162,7 @@ Let's examine how this appears in the code of a feature:
 
 By default, all feature modules are imported at the `flake.nix` file. Instead of manually importing each file, the collection folder "modules" (the home of all our features) becomes convenient. We simply need to import all `.nix` files from this folder recursively. Therefore, it's essential that all the files in the folder are feature modules.
 
-The import is accomplished with a few lines of Nix code. Alternatively, you can use the [vic/import-tree](https://github.com/vic/import-tree) tool, which, as a bonus, also excludes all files and folders with a name prefix of "`_`" from the import. This can be particularly useful for disabling unfinished code or code that is not a ˋflake classˋ (feature) module.
+The import is accomplished with a few lines of Nix code. Alternatively, you can use the [vic/import-tree](https://github.com/vic/import-tree) tool, which, as a bonus, also excludes all files and folders with a name prefix of "`_`" from the import. This can be particularly useful for disabling unfinished code or code that is not a `<flake class>` (feature) module.
 
 The import of all feature modules can be accomplished as follows:
 ```nix
