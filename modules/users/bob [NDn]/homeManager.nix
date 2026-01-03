@@ -4,7 +4,8 @@
 }:
 let
   username = "bob";
-
+in
+{
   flake.modules.homeManager."${username}" =
     { pkgs, ... }:
     {
@@ -19,7 +20,4 @@ let
         mediainfo
       ];
     };
-in
-{
-  inherit flake;
 }

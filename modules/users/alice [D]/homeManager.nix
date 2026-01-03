@@ -4,7 +4,8 @@
 }:
 let
   username = "alice";
-
+in
+{
   flake.modules.homeManager."${username}" =
     { pkgs, ... }:
     {
@@ -14,7 +15,4 @@ let
       ];
       home.username = "${username}";
     };
-in
-{
-  inherit flake;
 }

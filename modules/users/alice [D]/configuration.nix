@@ -6,7 +6,8 @@
 
 let
   username = "alice";
-
+in
+{
   flake.modules.darwin."${username}" =
     { pkgs, ... }:
     {
@@ -27,7 +28,4 @@ let
       };
       programs.zsh.enable = true;
     };
-in
-{
-  inherit flake;
 }

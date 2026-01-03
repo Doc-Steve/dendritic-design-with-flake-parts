@@ -4,7 +4,8 @@
 }:
 let
   username = "eve";
-
+in
+{
   flake.modules.homeManager."${username}" =
     { pkgs, ... }:
     {
@@ -17,7 +18,4 @@ let
         imagemagick
       ];
     };
-in
-{
-  inherit flake;
 }

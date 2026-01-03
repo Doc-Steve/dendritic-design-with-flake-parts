@@ -6,7 +6,8 @@
 
 let
   username = "mallory";
-
+in
+{
   flake.modules.nixos."${username}" =
     {
       lib,
@@ -27,7 +28,4 @@ let
       };
       programs.zsh.enable = true;
     };
-in
-{
-  inherit flake;
 }
