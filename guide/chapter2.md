@@ -333,7 +333,7 @@ Constants can later be utilized just like any other option value of that configu
 
 <ins>**Example:**</ins>
 
-In our example, we want to modularize the routing information for a specific subnet, `subnet-A`. To achieve this, we create our `DRY aspect` for `subnet-A` and name our new class `networkInterface` as follows:
+In our example, we want to modularize the network interface settings, such as routing information, for a specific subnet, `subnet-A`. To achieve this, we create our `DRY aspect` for `subnet-A` and name our new class `networkInterface` as follows:
 ```nix
   flake.modules.networkInterface.subnet-A = {
     ipv6.routes = [
@@ -353,7 +353,7 @@ In our example, we want to modularize the routing information for a specific sub
   };
 ```
 
-On our server, we assign routing information for `subnet-A` and another `subnet-B` to the interface `enp86s0` and add additional configuration.
+On our server, we assign the network interface settings for `subnet-A` and another `subnet-B` to the interface `enp86s0` and add additional configuration.
 ```nix
     networking.interfaces."enp86s0" =
       with self.modules.networkInterface;
