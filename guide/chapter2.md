@@ -314,7 +314,7 @@ Constants can later be utilized just like any other option value of that configu
  
 <ins>**Implications on Module Structure:**</ins>
 
-  DRY aspects will be encapsulated within a new module class. The sub-module of the DRY aspect can be utilized for attribute assignments (without any class checks) within other aspects. Additionally, inheritance can be employed to create well-structured DRY aspects.
+  `DRY aspects` will be encapsulated within a new module class. The (sub-)module of the `DRY aspect` can be utilized for attribute assignments (without any class checks) within other aspects. Additionally, inheritance can be employed to create well-structured `DRY aspects`.
  
  ---
  
