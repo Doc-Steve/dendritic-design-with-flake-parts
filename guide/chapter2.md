@@ -316,6 +316,7 @@ Constants can later be utilized just like any other option value of that configu
 <ins>**Implications on Module Structure:**</ins>
 
  A `factory aspect` is instantiated for multiple features based on the provided parameters. Subsequently, the `instance aspects` can be utilized in the same manner as any other aspects.
+ 
  ---
  
 <ins>**What we need to do:**</ins>
