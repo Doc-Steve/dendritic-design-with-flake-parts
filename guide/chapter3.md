@@ -41,6 +41,9 @@ The comprehensive example has this structure:
     │   ├── settings
     │   │   ├── 'bluetooth [N]'
     │   │   ├── 'firmware [N]'
+    │   │   ├── network
+    │   │   │   ├── 'subnet-A [networkInterfaces]'
+    │   │   │   └── 'subnet-B [networkInterfaces]'
     │   │   ├── 'systemConstants [NDnd]'
     │   │   └── 'systemd-boot [N]'
     │   └── 'system types'
@@ -70,6 +73,7 @@ Let's have a look at some details:
 - The `system/system types` directory contains features for defining the basic environment, which will be used for all hosts and users. It's a best practice to have some kind of `default` feature. In such a feature, you typically set very low-level system defaults and ensure that all widely used Nix tools in your setup (e.g., home-manager, impermanence, homebrew) are configured. I went overboard and created different system types, creating a hierarchy to define first the bare minimum defaults, then essential Nix tools, then CLI settings, and finally desktop settings. This is an example of using inheritance. It's utilized for hosts and users (e.g., `eve` is a system-cli only user!) that use different system types.
 - Creating a new host or user just requires only a few lines of code. The modules automatically match and work as intended across all environments. No extra effort is required to select the necessary code from the comprehensive feature library. See usage of the same feature 'bob' in the `linux-desktop` and on the `macbook`.
 - The user `bob` is created using the `user factory aspect function`, which is located in the `factory` directory. The `factory aspect function` files include documentation in their names, which also lists the `<classes>` of the aspects they create.
+- The `homeserver` utilizes the `DRY aspects` for its network interface in `network.nix`, which are defined in `system/network`.
 - Integrating a new Nix library becomes a breeze, as demonstrated in the `nix/tools` examples. Generate the feature, define all necessary parameters, and seamlessly insert it into the default classes. This approach eliminates the need for modifications to an increasingly complex and fragile `flake.nix` and other module files. Our `flake.nix` is automatically generated from our features and primarily consists of input definitions and a single line to import all feature modules.
 - Sometimes, special effort is needed for Nix tools that are only compatible with a specific environment, like the `impermanence` tool, which is only available on NixOS. Since it's used in the code of many features and we want to reuse the same code for Darwin, this becomes a problem. Initially, I used a design approach involving conditional `collector aspects`. While this design is clean, it required significant additional effort to implement the conditions. So, I opted for a simpler approach by defining dummy attributes specifically for the Darwin Home-Manager environment.
 - All related components are now conveniently located in the feature's directory, such as `programs/gnome`. This feature concept simplifies debugging and maintaining code consistency significantly. Each feature directory contains all the necessary definitions and settings related to that feature.

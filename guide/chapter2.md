@@ -304,6 +304,78 @@ Constants can later be utilized just like any other option value of that configu
       };
     };
 ```
+## ***DRY Aspect***
+
+<ins>**Use Case:**</ins>
+
+ We want to create a reusable component that can be used for multiple attribute assignments to follow the "Don't Repeat Yourself" principle. 
+
+ ---
+ 
+<ins>**Implications on Module Structure:**</ins>
+
+  DRY aspects will be encapsulated within a new module class. The sub-module of the DRY aspect can be utilized for attribute assignments (without any class checks) within other aspects. Additionally, inheritance can be employed to create well-structured DRY aspects.
+ 
+ ---
+ 
+<ins>**What we need to do:**</ins>
+
+ The `DRY` aspect is implemented using a self-defined `<new DRY class>`. Subsequently, we can utilize the `DRY` aspect module for attribute set assignments.
+
+>[!Note]
+>The `DRY aspect` is useful when you can't define a typical `simple aspect` because the attribute you want to define is part of an "attribute set of (submodule)" like `networking.interfaces.<name>.ipv4.routes`.
+>An alternative to the `DRY aspect` is the `factory aspect` (see the next chapter). However, the `DRY aspect` has the advantage of allowing for inheritance, which the `factory aspect` doesn't.
+
+>[!WARNING]
+>You must use `lib.mkMerge` instead of `//` when merging with other `DRY aspects` or other attribute sets.
+
+---
+
+<ins>**Example:**</ins>
+
+In our example, we want to modularize the routing information for a specific subnet, `subnet-A`. To achieve this, we create our `DRY aspect` for `subnet-A` and name our new class `networkInterface` as follows:
+```nix
+  flake.modules.networkInterface.subnet-A = {
+    ipv6.routes = [
+      {
+        address = "2001:1470:fffd:2098::";
+        prefixLength = 64;
+        via = "fdfd:b3f0::1";
+      }
+    ];
+    ipv4.routes = [
+      {
+        address = "192.168.2.0";
+        prefixLength = 24;
+        via = "192.168.1.1";
+      }
+    ];
+  };
+```
+
+On our server, we assign routing information for `subnet-A` and another `subnet-B` to the interface `enp86s0` and add additional configuration.
+```nix
+    networking.interfaces."enp86s0" =
+      with self.modules.networkInterface;
+      lib.mkMerge [
+        subnet-A
+        subnet-B
+        {
+          ipv4.addresses = [
+            {
+              address = "10.0.0.1";
+              prefixLength = 16;
+            }
+          ];
+          ipv6.addresses = [
+            {
+              address = "2001:1470:fffd:2098::e006";
+              prefixLength = 64;
+            }
+          ];
+        }
+      ];
+```
 
 ## ***Factory Aspect***
 
@@ -377,7 +449,7 @@ For the feature `bob`, we create the `instance aspects` using the `user factory 
 }
 ```
 
->[!NOTE]
+>[!WARNING]
 >You must use `lib.mkMerge` instead of `//` to add customization. Otherwise, the attribute sets won't be recursively merged, and the attributes of the set produced by the function will be overwritten. Or just put the customizations like with any other aspect splitting into a second file. This works fine, too.
 
 ## Applying and Selecting Aspect Patterns
