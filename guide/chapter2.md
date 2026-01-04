@@ -304,6 +304,81 @@ Constants can later be utilized just like any other option value of that configu
       };
     };
 ```
+
+## ***Factory Aspect***
+
+<ins>**Use Case:**</ins>
+
+ We want to develop features that are based on parameters.
+
+ ---
+ 
+<ins>**Implications on Module Structure:**</ins>
+
+ A `factory aspect` is instantiated for multiple features based on the provided parameters. Subsequently, the `instance aspects` can be utilized in the same manner as any other aspects.
+ ---
+ 
+<ins>**What we need to do:**</ins>
+
+ We define a `factory aspect function` as a template that generates `flake.modules` based on the provided parameters as attributes. Within the `factory aspect function`, multiple `factory aspects` can be defined, such as for different  `<classes>`. The `factory aspect function` is then stored in a library, making it accessible for use in various features.
+ 
+---
+
+<ins>**Example:**</ins>
+
+First, we need to define our library, where we'll store all our `factory aspect functions`:
+```nix
+{
+  options.flake.factory = lib.mkOption {
+    type = lib.types.attrsOf lib.types.unspecified;
+    default = { };
+  };
+}
+```
+
+Now, we can create our first `factory aspect function` and add it to our library. Let's assume we want to create a template for new `users`:
+```nix
+{
+  config.flake.factory.user = username: isAdmin: {
+
+    darwin."${username}" = {
+      users.users."${username}" = {
+        name = "${username}";
+      };
+      system.primaryUser = lib.mkIf isAdmin "${username}";
+    };
+
+    nixos."${username}" = {
+      users.users."${username}" = {
+        name = "${username}";
+      };
+      extraGroups = lib.optionals isAdmin [ "wheel" ];
+    };
+  };
+}
+```
+
+For the feature `bob`, we create the `instance aspects` using the `user factory aspect function` and then customize the feature further.
+```nix
+{
+  flake.modules = lib.mkMerge [
+    (self.factory.user "bob" true)
+    {
+      nixos.bob = {
+      # additional customization
+      };
+
+      darwin.bob = {
+      # additional customization
+      };
+    }
+  ];
+}
+```
+
+>[!NOTE]
+>You must use `lib.mkMerge` instead of `//` to add customization. Otherwise, the attribute sets won't be recursively merged, and the attributes of the set produced by the function will be overwritten. Or just put the customizations like with any other aspect splitting into a second file. This works fine, too.
+
 ## Applying and Selecting Aspect Patterns
  
 Creating new features and seamlessly integrating them into your existing structure mostly boils down to using the right design pattern(s) from above.

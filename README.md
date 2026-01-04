@@ -46,6 +46,7 @@ Furthermore, this guide includes a [Comprehensive Example](guide/chapter3.md#com
   - [***Inheritence Aspect***](guide/chapter2.md#inheritence-aspect)
   - [***Collector Aspect***](guide/chapter2.md#collector-aspect)
   - [***Constants Aspect***](guide/chapter2.md#constants-aspect)
+  - [***Factory Aspect***](guide/chapter2.md#factory-aspect)
   - [Applying and Selecting Aspect Patterns](guide/chapter2.md#applying-and-selecting-aspect-patterns)
   - [Bringing it all together](guide/chapter2.md#bringing-it-all-together)
 - [Comprehensive Example](guide/chapter3.md#comprehensive-example)
