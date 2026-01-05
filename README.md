@@ -34,6 +34,8 @@ For users solely relying on Nix to run a single machine, this guide may be overl
 
 Furthermore, this guide includes a [Comprehensive Example](guide/chapter3.md#comprehensive-example) that demonstrates the typical usage of the Dendritic Design. The example primarily focuses on illustrating the code structure aspects outlined in this guide. While it's not meant to be a direct copy template, it serves as a valuable resource for incorporating ideas into your own design.
 
+If you have any questions before you begin, please refer to the provided [FAQ](guide/faq.md) for the Dendritic Pattern.
+
 # Contents
 - [Basics for usage of the Dendritic Pattern](guide/chapter1.md#basics-for-usage-of-the-dendritic-pattern)
   - [Libraries](guide/chapter1.md#libraries)
