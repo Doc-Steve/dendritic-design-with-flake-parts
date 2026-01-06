@@ -7,7 +7,7 @@ You’ll find references to my favorite resources below.
 If you're developing a specific feature and seeking inspiration, GitHub can be a valuable resource.
 Simply search for
 
-```
+```console
 lang:nix flake.modules SOME-OPTION
 ```
 
