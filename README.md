@@ -19,7 +19,7 @@ As with many other programming languages, Nix offers numerous alternative approa
 Some Nix users might find this journey relatable:<br/>
 *As a beginner, you start with a single `configuration.nix` file. However, as your requirements grow, such as managing multiple hosts, users, and self-defined services, you redesign your code structure multiple times. Each iteration makes your code increasingly complex. The complexity reaches a new level when you integrate Home-Manager into your system configuration and when you use your code simultaneously for Linux and MacOS.*
 
-With increasing experience, you desire:
+With increasing experience, you desire:<img align="right" height="200" src="https://github.com/Doc-Steve/dendritic-design-with-flake-parts/wiki/blocks.png">
 - **Reusable code** that can be easily integrated into various areas or foreign code that can be used without significant changes to your existing code.
 - **Simple troubleshooting** that enables quick identification and resolution of errors in a single location.
 - **A logical and easily expandable structure** that minimizes complexity and enhances manageability.
