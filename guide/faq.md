@@ -11,7 +11,7 @@
 	- [How does it compare to other template repositories / host management tools?](#how-does-it-compare-to-other-template-repositories--host-management-tools)
 	- [I already use modules, why should I put an abstraction layer on top?](#i-already-use-modules-why-should-i-put-an-abstraction-layer-on-top)
 	- [Should I use Flake-Parts and what are the alternatives?](#should-i-use-flake-parts-and-what-are-the-alternatives)
-	- [Where do I find additional infos / examples?](#where-do-i-find-additional-infos--examples)
+	- [Is it mandatory for me to learn all the `Aspect` patterns mentioned in the guide?](#is-it-mandatory-for-me-to-learn-all-the-aspect-patterns-mentioned-in-the-guide)
 
 ---
 
@@ -137,15 +137,8 @@ Some examples:
 - [den - an aspect-oriented approach to Dendritic Nix configurations](https://github.com/vic/den)
 - [Unify - A framework for unifying multiple types of Nix configurations, allowing you to easily define them in the same modules](https://codeberg.org/quasigod/unify/)
 
-### Where do I find additional infos / examples?
+### Is it mandatory for me to learn all the `Aspect` patterns mentioned in the guide?
 
-Refer to the last chapter of the guide for examples of repositories and additional information sources.
+The `Aspect` patterns provided in the guide are meant to inspire you and serve as a template for similar situations.
 
-If you're developing a specific feature and seeking inspiration, GitHub can be a valuable resource.
-Simply search for
-
-```
-lang:nix flake.modules SOME-OPTION
-```
-
-and you'll often find implementations that can be used for a Dendritic setup.
+Of course, they are not mandatory in any way to utilize the Dendritic Pattern.

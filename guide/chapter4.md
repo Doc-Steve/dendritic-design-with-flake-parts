@@ -4,6 +4,15 @@ Thanks to everyone who inspired me in creating my own Dendritic setup and finall
 
 You’ll find references to my favorite resources below.
 
+If you're developing a specific feature and seeking inspiration, GitHub can be a valuable resource.
+Simply search for
+
+```
+lang:nix flake.modules SOME-OPTION
+```
+
+and you'll often find implementations that can be used for a Dendritic setup.
+
 ## Dendritic Pattern
 
 [vic/Dendritic Nix](https://vic.github.io/dendrix/Dendritic.html)
