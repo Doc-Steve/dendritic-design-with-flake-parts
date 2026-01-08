@@ -1,13 +1,19 @@
 {
+  inputs,
+  ...
+}:
+{
   flake.modules.homeManager.shell =
     {
       config,
       ...
     }:
     {
-      home.persistence."/persistent/home/${config.home.username}" = {
-        directories = [ ".config/zsh" ];
-        files = [ ".bash_history" ];
+      home = inputs.self.lib.mkIfPersistence config {
+        persistence."/persistent" = {
+          directories = [ ".config/zsh" ];
+          files = [ ".bash_history" ];
+        };
       };
     };
 }

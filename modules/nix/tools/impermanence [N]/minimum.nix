@@ -15,15 +15,16 @@
         ];
       };
 
+      home-manager.sharedModules = [
+        {
+          home.persistence."/persistent" = {
+            #
+          };
+        }
+      ];
+
       programs.fuse.userAllowOther = true;
 
     };
 
-  flake.modules.homeManager.impermanence =
-    { config, ... }:
-    {
-      home.persistence."/persistent/home/${config.home.username}" = {
-        allowOther = false;
-      };
-    };
 }

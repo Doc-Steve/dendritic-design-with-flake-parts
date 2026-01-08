@@ -11,7 +11,6 @@
       [
         system-default
         home-manager
-        impermanence
         secrets
       ]
       ++ [ inputs.self.modules.generic.systemConstants ];
@@ -25,7 +24,6 @@
         determinate
         home-manager
         homebrew
-        impermanence
         secrets
       ]
       ++ [ inputs.self.modules.generic.systemConstants ];
