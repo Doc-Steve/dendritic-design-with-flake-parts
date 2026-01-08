@@ -11,7 +11,7 @@
 
 <h3 align="center"> A guide on how to structure your Nix code with Flake Parts using the Dendritic Pattern </h3>
 <p align="center">
-  <img src="https://github.com/Doc-Steve/dendritic-design-with-flake-parts/wiki/line2.png" width="600" height="5" />
+  <img src="https://github.com/Doc-Steve/dendritic-design-with-flake-parts/wiki/line.png" width="600" height="5" />
 </p>
 
 As with many other programming languages, Nix offers numerous alternative approaches to implementing the desired outcome. While this freedom brings certain advantages, it also presents some drawbacks.
@@ -47,6 +47,7 @@ If you have any questions before you begin, please refer to the provided [FAQ](h
   - [***Simple Aspect***](https://github.com/Doc-Steve/dendritic-design-with-flake-parts/wiki/Dendritic_Aspects#simple-aspect)
   - [***Multi Context Aspect***](https://github.com/Doc-Steve/dendritic-design-with-flake-parts/wiki/Dendritic_Aspects#multi-context-aspect)
   - [***Inheritence Aspect***](https://github.com/Doc-Steve/dendritic-design-with-flake-parts/wiki/Dendritic_Aspects#inheritence-aspect)
+  - [***Conditional Aspect***](https://github.com/Doc-Steve/dendritic-design-with-flake-parts/wiki/Dendritic_Aspects#conditional-aspect)
   - [***Collector Aspect***](https://github.com/Doc-Steve/dendritic-design-with-flake-parts/wiki/Dendritic_Aspects#collector-aspect)
   - [***Constants Aspect***](https://github.com/Doc-Steve/dendritic-design-with-flake-parts/wiki/Dendritic_Aspects#constants-aspect)
   - [***DRY Aspect***](https://github.com/Doc-Steve/dendritic-design-with-flake-parts/wiki/Dendritic_Aspects#dry-aspect)
