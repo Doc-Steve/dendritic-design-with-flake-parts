@@ -201,7 +201,7 @@ Flake-Parts and, if necessary, other Nix tool libraries must be set up. Here's a
 > [!TIP]
 > The [flake-file](https://github.com/vic/flake-file?tab=readme-ov-file#flakemodulesdendritic) tool has also a `flakeModule.dendritic` module included, which conveniently sets up flake-file, import-tree, flake-parts and sets `outputs` to import all `./modules`.
 
-When creating configurations (in our biolerplate parts), we need a few lines of code that we can store in a personal library for convenience. For instance, for nixosConfigurations, we can create something like this:
+When creating configurations (in our boilerplate parts), we need a few lines of code that we can store in a personal library for convenience. For instance, for nixosConfigurations, we can create something like this:
 
 ```nix
   mkNixos = system: name: {
