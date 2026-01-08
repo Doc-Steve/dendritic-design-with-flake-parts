@@ -408,7 +408,7 @@ As you saw in the previous chapter, we explained how we did it for a user. A typ
   };
 ```
 
-No we just have to put our NixOS host "linux-desktop" `aspect` module into the nixosConfigurations of the flake output, we use this boilerplate:
+Now, we just have to put our NixOS host "linux-desktop" `aspect` module into the nixosConfigurations of the flake output by using this boilerplate:
 ```nix
 flake.nixosConfigurations = inputs.self.lib.mkNixos "x86_64-linux" "linux-desktop";
 ```
