@@ -3,7 +3,7 @@
   ...
 }:
 {
-  # import all essential nix-tools which which are used in all modules of specific class
+  # import all essential nix-tools which are used in all modules of a specific class
 
   flake.modules.nixos.system-default = {
     imports =
