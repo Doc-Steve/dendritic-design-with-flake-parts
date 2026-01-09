@@ -5,7 +5,7 @@
 {
   # default settings needed for all darwinConfigurations
 
-  flake.modules.darwin.system-default =
+  flake.modules.darwin.system-minimal =
     {
       pkgs,
       ...
