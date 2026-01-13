@@ -13,7 +13,10 @@
         home-manager
         secrets
       ]
-      ++ [ inputs.self.modules.generic.systemConstants ];
+      ++ (with inputs.self.modules.generic; [
+        systemConstants
+        pkgs-by-name
+      ]);
   };
 
   flake.modules.darwin.system-default = {
@@ -26,7 +29,10 @@
         homebrew
         secrets
       ]
-      ++ [ inputs.self.modules.generic.systemConstants ];
+      ++ (with inputs.self.modules.generic; [
+        systemConstants
+        pkgs-by-name
+      ]);
   };
 
   # impermanence is not added by default to home-manager, because of missing Darwin implementation
