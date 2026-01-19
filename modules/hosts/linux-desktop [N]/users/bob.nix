@@ -13,7 +13,7 @@
           host = "home-server.lan";
           resource = "home";
           destination = "/home/users/bob/homeserver";
-          credentialspath = ""; # "${config.age.secrets."homeserver-cred".path}";
+          credentialspath = "${config.age.secrets."homeserver-cred".path}";
           UID = "bob";
           GID = "users";
         })
